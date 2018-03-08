@@ -1,0 +1,67 @@
+.page{
+	margin-top:40px;
+}
+.btn{
+	margin:0 20px;
+	background: #ff9500;
+    color: #fff;
+}
+.check{
+	padding-top:0;
+	padding-bottom:0;
+}
+.checkbox{
+	margin-left:80rpx;
+}
+.surplus{
+	margin-left:43rpx;
+}
+
+.order-title{
+  /* text-align:right; */
+  color:#999;
+  font-size:14px;
+}
+
+.hidebox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.3);
+}
+
+.hideleft{
+  position:absolute;
+  left:10%;
+  top:10%;
+  background:#fff;
+  width:80%;
+  height:40%;
+}
+
+.hidetitle{
+  text-align:center;
+  margin:15px 0
+}
+
+.pass_input{
+  width:80%;
+  border:1px solid #999;
+  margin:0 auto;
+  padding-left:10px;
+  height:30px;
+  line-height:30px;
+  border-radius:3px;
+}
+
+.surebtn{
+  width:85%;
+  background:#4cd964;
+  margin:30px auto;
+  text-align:center;
+  height:40px;
+  line-height:40px;
+  color:#fff;
+}

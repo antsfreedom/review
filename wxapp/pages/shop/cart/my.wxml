@@ -1,0 +1,38 @@
+<!-- 购物车 -->
+<view class="page">
+    <view class="page__bd"> 
+        <view wx:for='{{data_list}}' wx:key="{{index}}" style="background:#fff;margin-bottom:10px">
+        <view class="cart-box">
+          <view class="cart-list"  >
+              <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
+              <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
+              <navigator url="/pages/shop/index/detail?id={{item.good_info.id}}"><image class="cart-thumb" src="{{item.good_info.cover_url}}"></image></navigator>
+              <view class="cart-pro-name">{{item.good_info.title}}</view>
+              <view class="cart-pro-rule" wx:if="{{cate.spec}}">规格：{{item.spec}}</view>
+              <view class="cart-pro-rule" wx:else>规格：无</view>
+              <view class="cart-pro-price">￥{{item.good_info.price}}</view>
+              <view class="cart-count-box">
+                  <text class="cart-count-down" bindtap="minusCount" data-index="{{index}}">-</text>
+                  <text class="cart-count-num"  data-item="{{item.amount}}">{{item.amount}}</text>
+                  <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
+              </view>
+              <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
+          </view>
+        </view> 
+      </view> 
+
+        <view class="cart-top">
+          <view>
+            <icon wx:if="{{selectAllStatus}}" type="success" color="red" class="total-select" bindtap="selectAll"/>
+            <icon wx:else type="circle" color="#666" class="total-select" bindtap="selectAll"/>
+            <text>全选</text>
+          </view>
+          <view class="btn" bindtap='formSubmit'>立即结算</view>
+        </view>
+               
+        <navigator url='/pages/shop/index/lists?cid=1' class='center no-data' wx:if='{{info.data_list < 1}}'>
+            <view class='fa fa-store'></view>
+            <text>购物车还是空的，快去逛逛吧～</text>
+        </navigator>
+    </view>
+</view>

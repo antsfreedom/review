@@ -1,0 +1,48 @@
+<!-- 订单的状态（发货/待发货) -->
+<view class="page">
+    <view class="page__bd">
+        <view class="tab-links">
+            <view class='{{item.class}}' wx:for="{{tab_links}}" bindtap='toggleTab' id='{{item.status}}'>
+                <view class='center'>
+                    <text>{{item.title}}</text>
+                </view>
+            </view>
+        </view>
+        <view class='tab'>
+            <view class="weui-panel weui-panel_access" wx:for='{{list}}' class='order'>
+                <view class='weui-panel__hd order__store space_between'>
+                    <navigator class='order_store' url='/pages/shop/store/detail?id={{item.store_info.id}}'><text class='fa fa-store'></text>{{item.store_info.title}}</navigator>
+                    <text class='color-theme' wx:for='{{order_status}}' wx:for-item='status' wx:if='{{status.status == item.status}}'>{{status.label}}</text>
+                </view>
+                <view class="weui-panel__bd order__goods">
+                    <navigator url='/pages/shop/index/detail?id={{item.id}}' wx:for='{{item.order_info}}' wx:for-item='goods' class="weui-media-box weui-media-box_appmsg goods" hover-class="weui-cell_active">
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                            <image class="weui-media-box__thumb goods__cover" mode='aspecFit' src="{{goods.cover_url}}" />
+                        </view>
+                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                            <view class="weui-media-box__title">{{goods.title}}</view>
+                            <view class="weui-media-box__desc goods__info">
+                                <view>颜色分类：{{goods.spec}}</view>
+                                <view>¥{{goods.price}} x{{goods.amount}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view class="weui-panel__ft">
+                    <view class='space_between order__pay'>
+                        <navigator url='/pages/im/index/index'><text class='fa fa-comment'></text>联系</navigator>
+                        <view class='flex_end order__pay_info'>
+                            <view>合计：</view>
+                            <view>¥<view class='order__pay_money price_lg'>{{item.pay_money}}</view></view>
+                            <view>含运费：¥{{item.express_fee}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='center no-data' wx:if='{{list.length < 1}}'>
+                <view class='fa fa-order'></view>
+                <text>您还没有相关的订单</text>
+            </view>
+        </view>
+    </view>
+</view>

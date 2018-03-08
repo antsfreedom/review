@@ -1,0 +1,43 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="" style="width:110px;">订单标题</view>
+                <view class="order-title">{{title}}</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">应付金额</view>
+                <view class="weui-cell__ft" style="color:#8e8e93">¥{{money}}</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">实际需付</view>
+                <view class="weui-cell__ft">¥{{original_money}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="page__bd" style="margin-top:20px;">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">钱包余额</view>
+                <view class="weui-cell__ft">剩余：¥{{user_money}}</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd"><image class="widget__arrow" src="/images/wxpay.jpg" style="width:80px;height:30px;"></image></view>
+                <view class="weui-cell__ft" style="color:#8e8e93">需支付¥{{money}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="btn-area"> 
+        <button class="btn" bindtap="paylist"> 立即付款 </button> 
+    </view>
+    <!-- 弹框 -->
+    <view class="hidebox" wx:if="{{flag}}">
+      <view class="hideleft">
+        <view class="hidetitle">确认支付</view>
+        <form class="form" bindsubmit="formSubmit">
+          <input class="pass_input" type="password" name="password" id="password" value="{{password}}" placeholder='请输入用户密码' ></input>
+          <button class="surebtn" formType="submit">确认支付</button>
+        </form>
+      </view> 
+    </view>
+</view> 

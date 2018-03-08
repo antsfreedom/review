@@ -1,0 +1,28 @@
+<view class="page">
+    <view class="page__bd">
+        <view class='center list-group'>
+            <view class='crop'>
+                <view class='crop__cover'></view>
+                <canvas
+                class="crop"
+                disable-scroll="true"
+                bindtouchstart="touchStart"
+                bindtouchmove="touchMove"
+                bindtouchend="touchEnd"
+                style="width:{{canvas.boxSize}}px;height:{{canvas.boxSize}}px;"
+                canvas-id="crop"  bindtap='chooseImage'>
+                </canvas>
+            </view>
+        </view>
+        <!-- <view class='center'>
+            <image mode='aspectFit' src='{{formData.avatar_url}}'></image>
+        </view> -->
+        <view class='' style='margin:70rpx auto 0rpx;'>
+            <button class="weui-btn form-btn" type="primary" bindtap='chooseImage'>选择图片</button>
+        </view>
+        <view class='' style='margin:70rpx auto 0rpx;'>
+            <button class="weui-btn form-btn" type="primary" bindtap='uploadImg'>确认上传</button>
+        </view>
+        <image style='width:{{canvas.boxSize}}px;height:{{canvas.boxSize}}px;' src='{{review_avatar}}' class='review-avatar'></image>
+    </view>
+</view>

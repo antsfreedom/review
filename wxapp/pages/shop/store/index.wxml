@@ -1,0 +1,70 @@
+<!-- 店铺列表页 -->
+<view class="top-box">
+  <view class="weui-search-bar" style="z-index:103">
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="20"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm='search' />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="weui-icon-search" type="search" size="20"  style="margin-top:5px"></icon>
+            <view class="weui-search-bar__text">搜索</view>
+        </label>
+    </view>  
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+  </view>
+  <view class="page">
+    <view class="nav">
+      <view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="listarea" data-nav="1">
+          <view class="content">区域</view>
+          <view class="icon"></view>
+      </view>
+      <view class="nav-son {{shownavindex == 2? 'active' : ''}}" wx:if="{{select}}" data-nav="2">
+          <view class="content">评分排序</view>
+          <view class="sortpic normal" wx:if="{{sortNormal}}" bindtap="listsort"><image src="../../../images/normal.png"/></view>
+          <view class="sortpic" wx:if="{{sortasc}}" bindtap="listdesc"><image src="../../../images/asc.png"/></view>
+          <view class="sortpic" wx:if="{{sortdesc}}" bindtap="listasc"><image src="../../../images/desc.png"/></view>
+      </view> 
+    </view>
+    <view class="area {{areaopen ? 'slidown' : 'slidup'}} {{areashow ? 'disappear':''}}">
+      <view class="area_item area-left">
+          <view class="{{select1 == index ? 'current' : ''}}" wx:for="{{cityleft}}" bindtap="selectleft" data-city='{{index}}'>
+              {{index}}
+          </view>
+      </view> 
+      <view class="area_item area-center">
+          <view class="{{select2 == index ? 'current2' : ''}}" wx:for="{{citycenter}}" bindtap="selectcenter" data-city='{{index}}'>
+              {{index}}
+          </view> 
+      </view>
+      <view class="area_item area-right">
+          <view wx:for="{{cityright}}" data-city = '{{index}}' bindtap ="selectright" >
+              {{item}}
+          </view>
+      </view>
+    </view>
+  </view>
+</view> 
+
+<view class="page">
+	<view class="page__bd" style="margin-top:100px" >
+    <view class=" weui-panel_access" wx:if='{{list.length > 0}}'>
+      <view class="weui-panel__bd" style='background-color: #f9f9f9;'> 
+        <navigator url='/pages/shop/store/detail?id={{item.id}}' class='goods-item' wx:for='{{list}}' wx:for-item="item" wx:key="key">
+          <image class='goods-item__cover' src='{{item.cover_url}}' mode='aspectFit'></image> 
+          <view class='goods-item__info'>
+            <view class='goods-item__title'>{{item.title}}</view>
+            <view class='price_lg color-theme'>{{item.city}}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view class='center no-data' wx:if='{{list.length < 1}}'>
+      <view class='fa fa-store'></view>
+      <text>更多商户正在筹备中，敬请期待...</text>
+    </view>
+	</view>
+</view> 

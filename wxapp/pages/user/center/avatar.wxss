@@ -1,0 +1,21 @@
+/* pages/user/login.wxss */
+.form-btn {
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    background-color: #3399ff!important;
+}
+.weui-cells::after,.weui-cells::before {
+    display: none;
+}
+.crop-box {
+    position: relative;
+}
+.crop__cover {
+    position: absolute;
+    left: 0;
+
+}
+.crop {
+    border: 1rpx solid #000;
+    box-sizing: content-box;
+}

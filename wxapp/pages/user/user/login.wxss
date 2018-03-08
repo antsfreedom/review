@@ -1,0 +1,41 @@
+/* pages/user/login.wxss */
+.logo {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 50%;
+}
+.form {
+    width: 600rpx;
+}
+.form-items {
+    background-color: inherit;
+}
+.input-item_label {
+    width: 48rpx;
+}
+.form-btn {
+    background-color: #3399ff!important;
+}
+.form-link {
+    font-size: 24rpx;
+}
+.form-link:first-child {
+    margin-right: 10rpx;
+    position: relative;
+}
+.form-link:last-child {
+    margin-left: 10rpx;
+}
+.form-link:first-child::after {
+    content: " ";
+    position: absolute;
+    top: 4rpx;
+    bottom: 4rpx;
+    right: -10rpx;
+    width: 1px;
+    border-right: 1rpx solid #555;
+    color: #555;
+}
+.weui-cells::after,.weui-cells::before {
+    display: none;
+}

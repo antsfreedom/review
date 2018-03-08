@@ -1,0 +1,22 @@
+<!-- 切换地址 -->
+<view class="page">
+	<view class="page__bd">
+    <view class="cart-box">
+      <view class="cart-list" wx:for="{{address_list}}" wx:key="{{index}}" wx:for-item="item">
+          <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
+          <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
+          <view>
+            <text class="cart-pro-name">收货人：{{item.title}}</text>
+            <text class="cart-pro-city">城市：{{item.city}}</text>
+          </view>
+           <text class="cart-pro-rule">联系电话：{{item.mobile}}</text>         
+          <view class="cart-pro-price">详细地址：{{item.address}}</view>
+          <view class="cart-pro-price">邮政编码：{{item.post_code}}</view>
+          <navigator url="../../user/address/edit?id={{item.id}}"><view class="editicon"><i class="fa fa-edit"></i></view></navigator>
+          <view class="del" bindtap="delbtn" data-index="{{index}}"><i class="fa fa-trash"></i></view>
+        </view>
+      </view>
+      <navigator url="../../user/address/add"><view class="addbtn">+新增地址</view></navigator>
+  </view>
+</view>
+

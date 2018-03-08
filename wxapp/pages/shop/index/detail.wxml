@@ -1,0 +1,120 @@
+<!-- 商品详情页 -->
+<import src="../../../utils/wxParse/wxParse.wxml"/>
+<!--幻灯片-->
+<swiper indicator-dots="{{indicatorDots}}" class='slide' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+	<block wx:for="{{info.images_url}}">
+		<swiper-item>
+			<image src="{{item}}" class="slide-image" mode='aspectFit'></image>
+		</swiper-item>
+	</block>
+</swiper>
+
+<view class="page">
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+                <view class='info'>
+                    <view class='info__title'>{{info.title}}</view>
+                    <view class='price_lg color-theme'>¥{{info.price}}</view>
+                    <block wx:if="{{price_type==1}}" >
+                      <view class='info__item' wx:for='{{info.spec_data_format}}' wx:for-index='spec' wx:key="key">
+                          <view class='info__item_title'>{{item.name}}：</view>
+                          <button class="weui-btn"  bindtap='selectSpec' type="warn" size='mini' plain='{{!(i == specSelected[spec])}}' wx:for='{{item.value}}' data-spec='{{spec}}' wx:for-item='i' data-value='{{i}}'>{{i}}</button>
+                      </view>
+                    </block>
+                    <view class='info__item'>购买数量：
+                        <button class="weui-btn" type="default" size='mini' plain='true' bindtap='descAmount'>-</button>
+                        <button class="weui-btn" type="default" size='mini' plain='true'>{{orderInfo.amount}}</button>
+                        <button class="weui-btn" type="default" size='mini' plain='true' bindtap='addAmount'>+</button>
+                    </view> 
+                    <view class='info__express space_between'>
+                        <view>快递：{{info.express_fee}}元</view>
+                        <view>库存：{{info.stock}}</view>
+                    </view>
+                    <view class="dev">配送：{{info.store_info.city[0]}} {{info.store_info.city[1]}} {{info.store_info.city[2]}}</view>
+                </view>
+                <view class="tab-links">
+                    <view class='{{item.class}}' wx:for="{{tab_links}}" bindtap='toggleTab' id='{{index}}'>
+                        <view class='center'>
+                            <text>{{item.title}}</text>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="tabs">
+                    <view class='tab' id='tab1' wx:if="{{tab_show == 0}}">
+                        <template is="wxParse" data="{{wxParseData:info_content.nodes}}"/>
+                    </view>
+                    <view class='tab' id='tab2' wx:if="{{tab_show == 1}}">
+                      <view wx:for='{{comment_list}}' class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                          <image class="weui-media-box__thumb" mode='aspectFit' src="{{item.user.avatar_url}}"></image>
+                        </view>
+                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                            <view class="weui-media-box__title">{{item.user.nickname}}</view>
+                            <view class="weui-media-box__desc">{{item.content}}</view>
+                        </view>
+                        <view class="weui-cell__ft">
+                            <view style="font-size: 10px;">{{item.create_time}}</view>
+                        </view>
+                      </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <!-- <view class="weui-panel weui-panel_access" style='margin-top: 10rpx;'>
+            <view class="weui-panel__bd">
+                <navigator url='/pages/shop/store/detail?id={{info.store_info.id}}' class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{info.store_info.cover_url}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{info.store_info.title}}</view>
+                        <view class="weui-media-box__desc">
+                            <view class=''>{{info.store_info.user.nickname}}</view>
+                            <view>{{info.store_info.city[0]}} {{info.store_info.city[1]}} {{info.store_info.city[2]}}</view>
+                        </view>
+                    </view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+            </view>
+        </view> -->
+        <!-- 店铺热门 -->
+        <!-- <view class=" weui-panel_access">
+          <view class="hot-title">
+            <view>店铺热门</view>             
+          </view>
+          <view class="weui-panel__bd" style='background-color: #f9f9f9;'>
+              <navigator url='/pages/shop/index/detail?id={{item.id}}' class='goods-item' wx:for='{{hot_list}}' wx:for-item="item" wx:key="key">
+                  <image class='goods-item__cover' src='{{item.cover_url}}' mode='aspectFit'></image> 
+                  <view class='goods-item__info'>
+                      <view class='goods-item__title'>{{item.title}}</view>
+                      <view class='price_lg color-theme'>¥{{item.price}}</view>
+                  </view>
+              </navigator>
+            </view>
+        </view> -->
+        <!-- <view style='color:#999;font-size: 26rpx;padding:20rpx 30rpx'>lyshop提供技术支持。<navigator style='display: inline;'  url='/pages/shopstore/index/add'>我也要开店>></navigator></view> -->
+    </view>
+	<view class='page__ft'>
+        <view class='toolbar'>
+            <navigator url='/pages/im/index/index' class='toolbar-item center'>
+                <view class='fa fa-comment'></view>
+                <view>客服</view>
+            </navigator>
+            <view class='toolbar-item center' bindtap='goodsMark'>
+                <block wx:if='{{info.mark_status}}'>
+                    <view class='fa fa-star'></view>
+                    <view>已收藏</view>
+                </block>
+                <block wx:else>
+                    <view class='fa fa-star-o'></view>
+                    <view>收藏</view>
+                </block>
+            </view>
+            <view class='toolbar-item center' bindtap='addCart' style="background:red;color:#fff">加入购物车</view> 
+            <view class='toolbar-item center' bindtap='buy'>立即购买</view> 
+        </view>
+    </view>
+</view>

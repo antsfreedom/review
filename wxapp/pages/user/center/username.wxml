@@ -1,0 +1,15 @@
+<view class="page">
+    <view class="page__hd"></view>
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入用户名" id='username' bindinput='setValue' name='username' value="{{formData.username}}" />
+                </view>
+            </view>
+        </view>
+        <view style='margin:70rpx auto 0rpx;'>
+            <button bindtap='formSubmit'  class="weui-btn form-btn" type="primary">修改用户名</button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+<view class="page">
+    <view class='list-group'>
+        <button class="weui-btn btn-default btn-block" bindtap='logout' type="default">退出登录</button>
+    </view>
+</view>

@@ -1,0 +1,9 @@
+/* pages/user/nickname.wxss */
+.form-btn {
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    background-color: #3399ff!important;
+}
+.weui-cells::after,.weui-cells::before {
+    display: none;
+}
