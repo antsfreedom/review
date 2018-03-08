@@ -1,0 +1,35 @@
+/* pages/user/index.wxss */
+.tab-link {
+    display: inline-block;
+    width: 33.33%;
+    color: #979797;
+    background-color: #fff;
+    height: 80rpx;
+    border-bottom: 4rpx solid #fff;
+    font-weight: bold;
+}
+.tab-link .center {
+    height: 100%;
+}
+.tab-link.active {
+    color: #3399ff;
+    background-color: #e6e7e8;
+    border-bottom: 4rpx solid #3399ff;
+}
+.form-items {
+    margin-top: 2em;
+}
+.send-verify {
+    z-index: 100!important;
+}
+.verifyimg {
+    width: 200rpx;
+    max-height: 80rpx;
+    position:absolute;
+    right: 20rpx;
+    top: 50%;
+    transform:translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    margin-top: 0;
+    z-index: 100!important;
+}

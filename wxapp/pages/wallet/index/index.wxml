@@ -1,0 +1,72 @@
+<!-- 个人中心钱包 -->
+
+<view class="page">
+	<view class="content">
+		<view class="money">
+	        <text style="font-size: 16px;color: #646464;font-weight: 300;">账户余额</text>：
+	        <text style="font-size: 16px;color: #3399ff">¥ </text>
+	        <text style="font-size: 20px;color: #3399ff">{{userInfo.money}}</text>
+	    </view>
+	    <view class="vip"  bindtap="bill">账单</view>
+	</view>	
+    <view style="color: #B3B3B3;font-size: 12px;" class="explain">
+        账户余额可以用于支付订单（可以使用红包和折扣券）
+    </view>
+	<view class="content-block">
+    	<view class="grid" style= "display:flex; flex-direction:row">
+	    	<view class="col">
+		    	<view  bindtap="recharge">
+	    			<view class="fa fa-recharge" style="font-size: 30px;color: #F15A4A;"></view>
+	    			<view>充值</view>
+	    		</view>
+	    	</view>
+	    	<view class="col">
+		    	<view bindtap="tapName">
+	    			<view class="fa fa-transfer" style="font-size: 30px;color: #F15A4A;"></view>
+	    			<view>转账</view>
+	    		</view>
+	    	</view>
+	    	<view class="col">
+		    	<view bindtap="tapName">
+	    			<view class="fa fa-withdraw" style="font-size: 30px;color: #F15A4A;"></view>
+	    			<view>提现</view>
+	    		</view>
+	    	</view>
+	    	<view class="col">
+		    	<view bindtap="tapName">
+	    			<view class="fa fa-credit-card" style="font-size: 30px;color: #F15A4A;"></view>
+	    		    <view>银行卡</view>
+	    		</view>
+	    	</view>	
+    	</view>
+    	<view class="grid grid_next" style= "display:flex; flex-direction:row">
+	    	<view class="col">
+		    	<view  bindtap="redbag">
+	    			<view class="fa fa-redbag" style="font-size: 30px;color: #F15A4A;"></view>
+	    			<view >红包</view>
+	    		</view>
+	    	</view>
+	    	<view class="col">
+		    	<view  bindtap="coupon">
+	    			<view class="fa fa-coupon" style="font-size: 30px;color: #F15A4A;"></view>
+	    			<view>折扣券</view>
+	    		</view>
+	    	</view>
+	    	<view class="col">
+		    	<view  bindtap="appstore">
+	    			<view class="fa fa-cloud" style="font-size: 30px;color: #F15A4A;"></view>
+	    		    <view>云商城</view>
+	    		</view>
+	    	</view>
+	    	<view class="col">
+		    	<view bindtap="tapName">
+	    			<view class="fa fa-qrcode" style="font-size: 30px;color: #F15A4A;"></view>
+	    			<view>付款码</view>
+	    		</view>
+	    	</view>	
+    	</view>
+    </view>
+</view>
+
+
+

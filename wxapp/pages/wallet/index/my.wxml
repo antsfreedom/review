@@ -1,0 +1,15 @@
+<!-- 订单页面 -->
+<view class="page">
+ 	<block wx:for="{{table_data_list}}">
+	    <view class="vip">
+			<view class="vip-title" style="font-size:14px">
+			<text>{{item.title}}</text><text class="num">{{item.type_code}}{{item.money}}</text>
+		</view>
+		<view class="datatime">{{item.create_time}}
+			<text class="pay" wx:if='{{item.is_pay == 0}}' style="background-color: red;color:#fff;">未支付</text>
+			<text class="pay" wx:elif="{{item.is_pay == 1}}" style="background-color: green;color:#fff;">已支付</text>
+		</view>
+		<view style="font-size:12px;">{{item.pay_type_text}}</view>
+		</view>
+	</block>
+</view>

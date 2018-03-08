@@ -1,0 +1,51 @@
+
+<view class="page">
+	<view class="page__bd">
+     <navigator  wx:if="{{default_address}}" url="address?time={{time}}"> 
+      <view class="orders-address">
+          <text class="orders-address-name">收货人: {{default_address.title}}</text>
+          <text class="orders-address-phone">电话: {{default_address.mobile}}</text> 
+          <view class="orders-address-detail">收货人地址: {{cityadress}}</view>
+      </view>
+    </navigator> 
+     <navigator wx:else url="../../user/address/add"> 
+      <view  class="orders-no-address">添加收货地址</view>
+    </navigator>    
+    <block wx:for="{{info}}" wx:for-item="item" wx:key="key">
+        <view class="weui-panel weui-panel_access order">
+            <!-- <view class='weui-panel__hd space_between'> 
+                <navigator url='/pages/shop/store/detail?id={{item.store_info.id}}'><text class='fa fa-store' color='#3399ff'></text>{{item.store_info.title}}</navigator>
+            </view> -->
+            <view class="weui-panel__bd">
+                <navigator url='/pages/shop/index/detail?id={{item.id}}' class="weui-media-box weui-media-box_appmsg goods" hover-class="weui-cell_active" wx:for='{{item.order_info}}' wx:for-item="order" wx:key="key" >
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{order.cover_url}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title" style="font-size:14px">{{order.title}}</view>
+                        <view class="weui-media-box__desc goods__info">
+                            <view>颜色分类：{{order.spec}}</view>
+                            <view>¥{{order.price}} x{{order.amount}}</view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="weui-panel__ft">
+                <view class='flex_end pay-info'>
+                    <view>合计：</view>
+                    <view class='pay-info__money color-theme'>¥{{total_price}} </view>
+                    <view>含快递费：¥{{all_fee}}</view>
+                </view>
+            </view>
+            <block  wx:if="{{!redbag}}">
+              <navigator url='../../wallet/coupon/my?time={{time}}'>
+                <view class="weui-cells__title redbag">优惠券 <text style="float:right">{{redbag}}</text></view>
+              </navigator>
+            </block>
+        </view> 
+        </block>
+        <view class='list-group'>
+            <button class="weui-btn form-btn" type="primary" bindtap='formSubmit' style="margin:0 30rpx;">立即下单</button> 
+        </view>
+	  </view>
+</view>

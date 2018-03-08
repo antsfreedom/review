@@ -1,0 +1,147 @@
+.weui-panel::after, .weui-panel::before{
+    display: none;
+}
+.weui-panel__hd::after {
+    display: none;
+}
+.slide-image {
+    width: 100%;
+    height: 170px;
+}
+.quickLink-item {
+    width: 25%;
+    flex-direction: column;
+    padding-top: 30rpx;
+    padding-bottom:10px;
+}
+.quickLink-item .fa {
+    font-size: 58rpx;
+    padding: 12rpx 30rpx;
+    border-radius: 50%;
+    color: #fff;
+}
+.quickLink-item:first-child .fa {
+    background-color: #6EC0EE;
+    box-shadow: 0 0 0 1px #6EC0EE;
+    border: 6rpx solid #fff;
+}
+.quickLink-item:nth-child(2) .fa {
+    background-color: #C59CCB;
+    box-shadow: 0 0 0 1px #C59CCB;
+    border:6rpx solid #fff;
+}
+.quickLink-item:nth-child(3) .fa {
+    background-color: #FCAA5C;
+    box-shadow: 0 0 0 1px #FCAA5C;
+    border:6rpx solid #fff;
+}
+.quickLink-item:nth-child(4) .fa {
+    background-color: #F85A61;
+    box-shadow: 0 0 0 1px #F85A61;
+    border:6rpx solid #fff;
+}
+.quickLink-item__title {
+    color: #999;
+    font-size: 28rpx;
+    margin-top: 20rpx;
+}
+.goods-item {
+    display: inline-block;
+    width: calc(50% - 18rpx);
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom:8rpx
+}
+.goods-item:nth-child(1),.goods-item:nth-child(2) {
+    margin-top: 12rpx;
+}
+.goods-item:nth-child(even) {
+    margin-left: 6rpx;
+    margin-right: 12rpx;
+}
+.goods-item:nth-child(odd) {
+    margin-right: 6rpx;
+    margin-left:12rpx;
+}
+.goods-item__cover {
+    width: 100%;
+    height: 300rpx;
+}
+.goods-item__info {
+    padding: 12rpx;
+}
+.goods-item__title {
+    font-size: 24rpx;
+    height: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #999;
+}
+.clearfix:after{
+  display: block;
+  content:"";
+  clear:both;
+}
+
+.goodsBuy{
+  margin-top:12rpx;
+  background: #fff;
+  /* margin-left:12rpx;
+  margin-right:6rpx */
+}
+
+.team{
+  position: relative;
+  float:left;
+  width:300rpx;
+  height:330rpx;
+  margin:10px 28px;
+}
+.team:last-child{
+  margin-right:0;
+  margin-left:12rpx;
+}
+
+.team image{
+  width:100%;
+  height:300rpx; 
+}
+
+.buyway{
+  position: absolute;
+  left:5%;
+  top:0;
+  z-index:2;
+  color:#f85a61;
+}
+
+.adv{
+  margin-top:15px;
+}
+
+.adv image{
+  width:100%;
+  height:40px;
+}
+
+.advTwo image{
+  width:100%;
+  height:45px;
+}
+
+.advThree image{
+  width:100%;
+  height:60px;
+}
+
+
+.cate_line{
+  width:3px;
+  height:15px;
+  background:#999;
+  vertical-align: middle;
+  display:inline-block;
+  margin-right:5px;
+}
+
+

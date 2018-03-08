@@ -1,0 +1,18 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title list-group">
+            <radio-group bindchange="setValue">
+                <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
+                    <radio class="weui-check" name='gender' id='gender' value="{{item.value}}" checked="{{item.checked}}" />
+                    <view class="weui-cell__bd">{{item.name}}</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+                        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+                    </view>
+                </label>
+            </radio-group>
+        </view>
+        <view style='margin:70rpx auto 0rpx;'>
+            <button bindtap='formSubmit' class="weui-btn form-btn" type="primary">修改性别</button>
+        </view>
+    </view>
+</view>

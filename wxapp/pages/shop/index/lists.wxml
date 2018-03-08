@@ -1,0 +1,90 @@
+<view class="top-box">
+  <view class="weui-search-bar" style="z-index:103">
+      <view class="weui-search-bar__form"> 
+          <view class="weui-search-bar__box">
+              <icon class="weui-icon-search_in-box" type="search" size="20"></icon>
+              <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm='search' />
+              <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                  <icon type="clear" size="14"></icon>
+              </view>
+          </view>
+          <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+              <icon class="weui-icon-search" type="search" size="20"  style="margin-top:5px"></icon>
+              <view class="weui-search-bar__text">搜索</view>
+          </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+  </view>
+  <view class="page">
+      <view class="nav">  
+          <view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="brandlist" data-nav="1">            
+              <view class="content">{{brand}}</view>
+              <view class="icon"></view>
+          </view>
+          <view class="nav-son {{shownavindex == 2? 'active' : ''}}" bindtap="pricelist" data-nav="2">
+              <view class="content">{{price}}</view> 
+              <view class="icon"></view>
+          </view>
+          <view class="nav-son {{shownavindex == 3? 'active' : ''}}" bindtap="typelist" data-nav="3" wx:if="{{attr_list.length}}">
+              <view class="content">{{pro_type}}</view>
+              <view class="icon"></view> 
+          </view>
+      </view>
+      <!-- 品牌 -->
+      <view class="menu1 {{brandopen ? 'slidown' : 'slidup'}} {{brandshow ? 'disappear':''}}"> 
+          <view class="menu menu1-left">
+            <view class="indus-box" bindtap="hidebg">
+              <view class="list-row">
+                <view class="list-col" bindtap="chooseAll">全部</view>
+                  <view class="list-col" wx:for="{{brand_list}}" wx:for-item="item" wx:key="key" data-id="{{item.id}}" data-title="{{item.title}}" bindtap="chooseBrand">{{item.title}}</view>
+              </view>
+            </view>              
+          </view>
+      </view>
+      <!-- 价格 -->
+      <view class="temp temp1 {{priceopen ? 'slidown' : 'slidup'}} {{priceshow ? 'disappear':''}}">
+        <view class="region-box" bindtap="hidebg">
+          <view class="region-list">
+            <view class="list-col" bindtap="priceAll">全部</view>
+            <view class="list-col" wx:for="{{price_list}}" wx:for-item="item" wx:key="key" data-id="{{item.id}}" bindtap="choosePrice">{{item.name}}</view>
+          </view>
+          </view>
+        </view>
+      </view>
+</view>
+<view class="hidebox"wx:if="{{flag}}">
+  <view class="hidebg"  bindtap="leftlist"></view>
+  <view class="hidelist" >
+    <view class='cate_child' wx:for='{{attr_list}}' wx:item="item" wx:key="key">
+      <view class='space_between child'>
+        <view class='child__title'>{{item.title}}</view>
+      </view>
+      <view class='grandchild'>
+        <block wx:for='{{item.data}}' wx:for-item='child'>
+          <view class='grandchild-item'>        
+            <view bindtap="chooseSize"  data-value="{{child[item.prarm]}}" data-name="{{item.prarm}}">{{child[item.prarm]}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view> 
+</view>
+<view class="page">
+	<view class="page__bd" style="margin-top:95px;padding-bottom:0">
+   <view class="weui-panel weui-panel_access" wx:if='{{list.length > 0}}'>
+          <view class="weui-panel__bd" style='background-color: #f9f9f9;'>
+              <navigator url='/pages/shop/index/detail?id={{item.id}}' class='goods-item' wx:for='{{list}}' wx:for-item="item" wx:key="key">
+                  <image class='goods-item__cover' src='{{item.cover_url}}' mode='aspectFit'></image> 
+                  <view class='goods-item__info'>
+                    <view class='goods-item__title'>{{item.title}}</view>
+                    <view class='price_lg color-theme'>¥{{item.price}}</view>                      
+                  </view>
+              </navigator>
+            </view>
+        </view>
+        <view class='center no-data' wx:if='{{list.length < 1}}'>
+            <view class='fa fa-store'></view>
+            <text>没有相关商品</text> 
+        </view>
+	</view>
+</view>

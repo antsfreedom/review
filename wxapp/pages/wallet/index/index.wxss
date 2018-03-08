@@ -1,0 +1,33 @@
+.page{
+    padding:0 20px;
+}
+.content{
+	overflow:hidden;
+}
+.money{
+    margin: 20px 0;
+    float:left;
+}
+.vip{
+	float:right;
+	margin-top:20px;
+}
+.explain{
+    border-bottom:1px solid #ccc;
+    padding-bottom:20px; 
+
+}
+.content-block{
+    margin-top:20px;
+    margin-left:20px;
+}
+.grid_next{
+	margin-top:20px;
+}
+.col{
+    width:25%;
+}
+.fa{
+	text-algin:center;
+}
+

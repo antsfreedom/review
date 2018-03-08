@@ -1,0 +1,100 @@
+<!-- 店铺详情页 -->
+<view class="page">
+	<view class="page__bd">
+    <view class="tab_top">
+    <!-- 搜索框 --> 
+      <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+          <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm='search' />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                <icon type="clear" size="14"></icon> 
+            </view>
+          </view>
+          <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">搜索</view>
+          </label>
+        </view>
+        <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+      </view>
+      <view class="navbar">
+        <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="key" bindtap="navbarTap">{{item}}</text>
+        <view style="line-height:80rpx;margin-right:25px;color:#aaa" bindtap="listcate">全部分类</view>
+      </view> 
+    </view>
+
+    <view class='store__top clearfix'>
+      <image class='store__cover' src="{{info.cover_url}}"></image>
+      <view class='store__info'>
+          <view class='store__info_title'>{{info.title}}</view>
+          <view class="store__info_abstract">简介:{{info.abstract}}</view>
+          <view class='store__info_city'>城市：{{info.city}}</view>
+      </view>
+    </view>
+      <!-- 全部 -->
+      <view hidden="{{currentTab!==0}}">
+        <view class="weui-panel weui-panel_access" style="margin-top:8px;">
+          <view class="weui-panel__bd" style='background-color: #f9f9f9;'> 
+            <navigator url='/pages/shop/index/detail?id={{item.id}}' class='goods-item' wx:for='{{data_list}}' wx:for-item="item" wx:key="key">
+              <image class='goods-item__cover' src='{{item.cover_url}}' mode='aspectFit'></image> 
+              <view class='goods-item__info'>
+                  <view class='goods-item__title'>{{item.title}}</view>
+                  <view class='price_lg color-theme'>¥{{item.price}}</view>
+              </view>
+            </navigator>
+          </view>
+        </view> 
+      </view>
+      <!-- 新品 -->
+      <view hidden="{{currentTab!==1}}">
+       <view class="weui-panel weui-panel_access" style="margin-top:8px;">
+          <view class="weui-panel__bd" style='background-color: #f9f9f9;'> 
+            <navigator url='/pages/shop/index/detail?id={{item.id}}' class='goods-item' wx:for='{{new_list}}' wx:for-item="item" wx:key="key">
+              <image class='goods-item__cover' src='{{item.cover_url}}' mode='aspectFit'></image> 
+              <view class='goods-item__info'>
+                  <view class='goods-item__title'>{{item.title}}</view>
+                  <view class='price_lg color-theme'>¥{{item.price}}</view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <!-- 店铺热门 -->
+      <view hidden="{{currentTab!==2}}">
+       <view class="weui-panel weui-panel_access" style="margin-top:8px;">
+          <view class="weui-panel__bd" style='background-color: #f9f9f9;'> 
+            <navigator url='/pages/shop/index/detail?id={{item.id}}' class='goods-item' wx:for='{{hot_list}}' wx:for-item="item" wx:key="key">
+              <image class='goods-item__cover' src='{{item.cover_url}}' mode='aspectFit'></image> 
+              <view class='goods-item__info'>
+                  <view class='goods-item__title'>{{item.title}}</view>
+                  <view class='price_lg color-theme'>¥{{item.price}}</view>
+              </view>
+            </navigator>
+          </view>
+        </view> 
+      </view>
+
+      <view style='color:#999;font-size: 26rpx;padding:20rpx 30rpx'>lyshop提供技术支持。<navigator style='display: inline;' url='/pages/shopstore/index/add'>我也要开店>></navigator></view>
+      
+      <view class="hidebox clearfix" wx:if="{{flag}}">
+        <view class="hideleft" bindtap="hidelist"></view>
+        <view class="hidelist">
+          <view class='cate_child' wx:for='{{cate_list}}' wx:item="item" wx:key="key">
+              <view class='space_between child' bindtap='toggleShow' data-parent='{{item.id}}' id='{{item.id}}'>
+                  <view class='child__title'>{{item.title}}</view>
+                  <view class='fa fa-angle-down' wx:if='{{item.collapsible}}'></view>
+                  <view class='fa fa-angle-right' wx:if='{{!item.collapsible}}'></view>
+              </view>
+              <view class='grandchild' wx:if='{{item.collapsible}}'>
+                <view class='grandchild-item' wx:for='{{item._child}}' wx:for-item='child' bindtap="catelist" data-id="{{child.id}}">
+                  <view style="width:40px;height:40px;border:1px solid #eee"><image src="{{child.cover_url}}" style="width:40px;height:40px;"></image></view>
+                  <view class="subtitle">{{child.title}}</view>
+                </view>
+              </view>
+            </view>
+        </view>
+      </view>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+<!-- 余额充值 -->
+<view class="page">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="page__bd">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell">
+                  <view class="weui-cell__bd">充值金额</view>
+                  <view class="weui-cell__ft">
+                      <view class="section">
+                          <input class="weui-input" type="text" name="money" id="money" bindinput='setValue' value="{{formData.money}}" placeholder="0.01" />
+                      </view>
+                  </view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd"><image class="widget__arrow" src="/images/wxpay.jpg" style="width:80px;height:30px;"></image></view>
+                </view>
+            </view>
+        </view>
+        <view style="padding:0 20px;font-size:14px;color:#6d6d72">当前余额 ¥ {{user_info.money}}</view>
+        <view class="btn-area">
+            <button class="btn" formType="submit"> 立即充值 </button>
+        </view>
+    </form>
+</view>

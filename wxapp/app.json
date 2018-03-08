@@ -1,0 +1,76 @@
+{
+    "pages": [    
+        "pages/shop/index/index",
+        "pages/shop/index/detail",
+        "pages/shop/index/lists",        
+        "pages/shop/store/index",
+        "pages/shop/category/index",
+        "pages/shop/mark/my",
+        "pages/shop/cart/my",
+        "pages/shop/store/detail",
+        "pages/shopstore/index/index",
+        "pages/shopstore/index/add",
+        "pages/shopext/tuan/lists",
+        "pages/shopext/qiang/lists",
+        "pages/shop/order/address",
+        "pages/shop/order/index",
+        "pages/shop/order/my",
+        "pages/user/index/index",
+        "pages/user/index/settings",
+        "pages/user/user/register",
+        "pages/user/user/login",
+        "pages/user/user/reset_password",
+        "pages/user/center/profile",
+        "pages/user/center/nickname",
+        "pages/user/center/username",
+        "pages/user/center/avatar",
+        "pages/user/center/gender",
+        "pages/user/center/city",
+        "pages/user/center/summary",
+        "pages/user/address/my",
+        "pages/user/address/add",
+        "pages/user/address/edit",
+        "pages/im/index/index",
+        "pages/im/index/detail",
+        "pages/wallet/coupon/my",
+        "pages/wallet/index/index",
+        "pages/wallet/index/my",
+        "pages/wallet/recharge/index",
+        "pages/wallet/index/pay"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#3399ff",
+        "navigationBarTitleText": "零云lyshop",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "list": [{
+            "pagePath": "pages/shop/index/index",
+            "text": "首页",
+            "selectedColor": "#3399ff",
+            "iconPath": "images/tabbar/home.png",
+            "selectedIconPath": "images/tabbar/home-fill.png"
+        }, {
+            "pagePath": "pages/shop/cart/my",
+            "text": "购物车",
+            "selectedColor": "#3399ff",
+            "iconPath": "images/tabbar/cart.png",
+            "selectedIconPath": "images/tabbar/cart-fill.png"
+        }, {
+            "pagePath": "pages/user/index/index",
+            "text": "我的",
+            "selectedColor": "#3399ff",
+            "iconPath": "images/tabbar/user.png",
+            "selectedIconPath": "images/tabbar/user-fill.png"
+        }],
+        "borderStyle": "white",
+        "selectedColor": "#2699e"
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    "debug": true
+}

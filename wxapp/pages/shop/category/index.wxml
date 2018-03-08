@@ -1,0 +1,27 @@
+<!-- 商品分类 -->
+<view class="page">
+    <view class="page__bd flex_start panel_container" style='padding-bottom: 0;background-color: #fff;'>
+        <view class='panel_left cate-list' style='height:{{height}}px'>
+            <view class='{{item.class}}' wx:for='{{list}}' id='{{item.id}}' bindtap='toggleCate' wx:key="key">{{item.title}}</view>
+        </view>
+        <view class='panel_right'>
+            <view class='cate_child' wx:for='{{list}}' wx:if='{{item.class == "cate-item cate-item_active"}}' wx:item="item" wx:key="key">
+                <!-- <image src="https://lyshop.test.lyunweb.com/Application/Shop/View/Public/img/slider/banner2.jpg" style="width:100%;height:150px"></image> -->
+                <block wx:for='{{item._child}}' wx:for-item='cate' wx:key="key">
+                    <view class='space_between child' bindtap='toggleShow' data-parent='{{item.id}}' id='{{cate.id}}'>
+                        <view class='child__title'>{{cate.title}}</view>
+                        <view class='fa fa-angle-down' wx:if='{{cate.collapsible}}'></view>
+                        <view class='fa fa-angle-right' wx:if='{{!cate.collapsible}}'></view>
+                    </view>
+                    <view class='grandchild' wx:if='{{cate.collapsible}}'>
+                        <!-- <navigator url='/pages/shop/index/lists?cid={{child.id}}' class='grandchild-item center' wx:for='{{cate._child}}' wx:for-item='child'> -->
+                         <navigator url='/pages/shop/index/lists?cid={{child.id}}' class='grandchild-item' wx:for='{{cate._child}}' wx:for-item='child'>
+                          <image src="{{child.cover_url}}" style="width:40px;height:40px;"></image>
+                          <view>{{child.title}}</view>
+                        </navigator>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

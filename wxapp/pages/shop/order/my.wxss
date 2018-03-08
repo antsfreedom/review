@@ -1,0 +1,15 @@
+.order {
+    background-color: #fff;
+    margin-top: 20rpx;
+}
+.order .fa {
+    margin-right: 10rpx;
+}
+.order__pay {
+    padding: 20rpx 30rpx;
+    font-size: 26rpx;
+}
+.order__pay_money {
+    margin-right: 20rpx;
+    display: inline;
+}

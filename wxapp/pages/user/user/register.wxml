@@ -1,0 +1,117 @@
+<view class="page">
+    <view class="tab-links">
+        <view class='{{item.class}}' wx:for="{{tab_links}}" bindtap='toggleTab' id='{{index}}'>
+            <view class='center'>{{item.title}}</view>
+        </view>
+    </view>
+    <view class="tabs">
+        <view class='tab' id='tab1' wx:if="{{tab_show == 0}}">
+            <form bindsubmit="formSubmit">
+                <view class="weui-cells form-items">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" type="text" name="email" id='email' bindinput='setValue' value="{{formData.email}}" placeholder="请输入邮箱" />
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" password='true' name="password" id='password'  bindinput='setValue' value='{{formData.password}}' placeholder="请输入密码"/>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" name="verify" id='verify' value="{{formData.verify}}"  bindinput='setValue'  placeholder="请输入验证码"/>
+                            <button class="weui-btn send-verify" type="primary" size='mini' disabled="{{formData.email.length < 5 || sendVerify.hasSend}}" bindtap='send_email_verify'>{{sendVerify.timerText}}</button>
+                        </view>
+                    </view>
+                </view>
+                <checkbox-group bindchange="bindAgreeChange" style='margin: 20rpx auto 20rpx'>
+                    <label class="weui-agree" for="weuiAgree">
+                        <view class="weui-agree__text">
+                            <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                            <view class="weui-agree__checkbox-icon">
+                                <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                            </view>
+                            阅读并同意<navigator url="" class="weui-agree__link">用户协议</navigator>和<navigator url="" class="weui-agree__link">隐私条款</navigator>
+                        </view>
+                    </label>
+                </checkbox-group>
+                <view class="">
+                    <button class="weui-btn btn-default btn-block" formType="submit" type="default" disabled="{{!isAgree}}">立即注册</button>
+                </view>
+            </form>
+        </view>
+        <view class='tab' id='tab2' wx:if="{{tab_show == 1}}">
+            <form bindsubmit="formSubmit">
+                <view class="weui-cells form-items">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" type="number" name="mobile" id='mobile'  bindinput='setValue' value="{{formData.mobile}}" placeholder="请输入手机号" />
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" password='true' name="password" id='password'  bindinput='setValue'  value="{{formData.password}}" placeholder="请输入密码"/>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" name="verify" id='verify' value="{{formData.verify}}"  bindinput='setValue'  placeholder="请输入验证码"/>
+                            <button class="weui-btn send-verify" type="primary" size='mini' disabled="{{formData.mobile.length < 11 || sendVerify.hasSend}}" bindtap='send_mobile_verify'>{{sendVerify.timerText}}</button>
+                        </view>
+                    </view>
+                </view>
+                <checkbox-group bindchange="bindAgreeChange" style='margin: 20rpx auto 20rpx'>
+                    <label class="weui-agree" for="weuiAgree">
+                        <view class="weui-agree__text">
+                            <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                            <view class="weui-agree__checkbox-icon">
+                                <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                            </view>
+                            阅读并同意<navigator url="" class="weui-agree__link">用户协议</navigator>和<navigator url="" class="weui-agree__link">隐私条款</navigator>
+                        </view>
+                    </label>
+                </checkbox-group>
+                <view class="">
+                    <button class="weui-btn btn-default btn-block" formType="submit" type="default" disabled="{{!isAgree}}">立即注册</button>
+                </view>
+            </form>
+        </view>
+        <view class='tab' id='tab3' wx:if="{{tab_show == 2}}">
+            <form bindsubmit="formSubmit">
+                <view class="weui-cells form-items">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" type="text" name="username" id='username'  bindinput='setValue'  value="{{formData.username}}" placeholder="请输入用户名" />
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" password='true' name="password" id='password'  bindinput='setValue' value="{{formData.password}}" placeholder="请输入密码"/>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" name="verify" id='verify' bindinput='setValue' value="{{formData.verify}}" placeholder="请输入验证码"/>
+                            <image src='https://demo.lingyun.net/user/user/verify' mode='aspectFit' class='verifyimg' alt="验证码" title='点击刷新'></image>
+                        </view>
+                    </view>
+                </view>
+                <checkbox-group bindchange="bindAgreeChange" style='margin: 20rpx auto 20rpx'>
+                    <label class="weui-agree" for="weuiAgree">
+                        <view class="weui-agree__text">
+                            <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                            <view class="weui-agree__checkbox-icon">
+                                <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                            </view>
+                            阅读并同意<navigator url="" class="weui-agree__link">用户协议</navigator>和<navigator url="" class="weui-agree__link">隐私条款</navigator>
+                        </view>
+                    </label>
+                </checkbox-group>
+                <view class="">
+                    <button class="weui-btn btn-default btn-block" formType="submit" type="default" disabled="{{!isAgree}}">立即注册</button>
+                </view>
+            </form>
+        </view>
+    </view>
+</view>

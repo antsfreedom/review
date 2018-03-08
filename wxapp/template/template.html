@@ -1,0 +1,21 @@
+<template name="areaPicker">
+    <view class='area-picker__bg' wx:if='{{areaShow}}'>
+        <view class='area-picker__container'>
+            <view class='area-picker__header space_between' bindtap='toggleArea'>
+                <view>取消</view>
+                <view>确定</view>
+            </view>
+            <picker-view class="picker-view" indicator-class='area-picker-column' style="width: 100%; height: 224px;" value="{{areaIndex}}" bindchange="bindAreaChange">
+                <picker-view-column>
+                    <view wx:for="{{province}}" class="area-picker__item">{{item.name}}</view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view wx:for="{{city}}" class="area-picker__item">{{item.name}}</view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view wx:for="{{area}}" class="area-picker__item">{{item.name}}</view>
+                </picker-view-column>
+            </picker-view>
+        </view>
+    </view>
+</template>

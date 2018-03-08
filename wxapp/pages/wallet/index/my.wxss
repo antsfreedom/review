@@ -1,0 +1,20 @@
+.vip{
+	margin-bottom:10px;
+	background-color:#fff;
+	padding:5px 20px;
+}
+.vip-title{
+	margin-top:20px;
+}
+.num{
+	float:right;
+}
+.datatime{
+	margin-top:5px;
+	font-size:12px;
+	color:#333;
+}
+.pay{
+	padding:5px;
+	border-radius:10px;
+}

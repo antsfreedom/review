@@ -1,0 +1,45 @@
+<view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm='search' />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">搜索</view>
+        </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+</view>
+<!--幻灯片-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+	<block wx:for="{{slider_list}}" wx:for-item="item" wx:key="key">
+		<swiper-item>
+			<image src="{{item.cover_url}}" class="slide-image"/>
+		</swiper-item>
+	</block>
+</swiper>
+<view class="page">
+	<view class="page__bd" style="padding-bottom:0">
+    <view class="weui-panel weui-panel_access" wx:for='{{goods_list}}' wx:for-item="cate" wx:key="key" wx:if='{{cate.index_recommend_list.length > 0}}'>
+      <view class="weui-panel__hd">
+        <view class='space_between'>
+            <view style="color:#333"> <text class="cate_line"></text>{{cate.title}}</view>
+            <navigator url='/pages/shop/index/lists?cid={{cate.id}}' class='color-theme'>更多 >></navigator> 
+        </view>
+      </view>
+      <view class="weui-panel__bd" style='background-color: #f9f9f9;'> 
+        <navigator url='/pages/shop/index/detail?id={{goods.id}}' class='goods-item' wx:for='{{cate.index_recommend_list}}' wx:for-item="goods" wx:key="key">
+          <image class='goods-item__cover' src='{{goods.cover_url}}' mode='aspectFit'></image> 
+          <view class='goods-item__info'>
+              <view class='goods-item__title'>{{goods.title}}</view>
+              <view class='price_lg color-theme'>¥{{goods.price}}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+	</view>
+</view>

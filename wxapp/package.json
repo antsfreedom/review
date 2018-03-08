@@ -1,0 +1,20 @@
+{
+  "name": "lingyun",
+  "version": "1.6.2",
+  "build": "20170606",
+  "description": "零云配套微信小程序版",
+  "keywords": [
+    "lingyun",
+    "微信小程序"
+  ],
+  "author": "jry",
+  "repository": {
+    "type": "git",
+    "url": "https://git.lingyun.net"
+  },
+  "homepage": "https://www.lingyun.net",
+  "license": "lingyun1.0",
+  "weixin": {
+    "appid": "wxa39860fca911a9f6"
+  }
+}

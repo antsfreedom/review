@@ -1,0 +1,46 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title info_base">
+            <navigator url="/pages/user/center/avatar" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">头像</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">
+                    <image src='{{userInfo.avatar_url}}' class='avatar'></image>
+                </view>
+            </navigator>
+            <navigator url="/pages/user/center/nickname" open-type='navigate' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">昵称</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo.nickname}}</view>
+            </navigator>
+            <navigator url="/pages/user/center/username" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">用户名</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo.username}}</view>
+            </navigator>
+            <navigator url="/pages/user/center/qrcode" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">我的二维码</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="/pages/user/address/my" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">我的地址</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+        <view class="weui-cells weui-cells_after-title info_extend">
+            <navigator url="/pages/user/center/gender" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">性别</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">
+                    <view wx:if='{{userInfo.gender == 1}}'>男</view>
+                    <view wx:elif='{{userInfo.gender == -1}}'>女</view>
+                    <view wx:else>保密</view>
+                </view>
+            </navigator>
+            <navigator url="/pages/user/center/city" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">地区</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo.city}}</view>
+            </navigator>
+            <navigator url="/pages/user/center/summary" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">个性签名</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo.summary}}</view>
+            </navigator>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+<view class="page">
+	<block wx:for="{{table_data_list}}">
+		<view class="content-block">
+			<view class="money_left">¥{{ item.money }}</view>
+			<view class="content_center">
+		      	<view><text>{{ item.title }}</text><text style="margin-left:50%;color:#888;">{{ item.status_text }}</text></view>
+		      	<view style="font-size:12px;color: #777;">满{{item.limit}}元可用</view>
+		      	<view style="font-size:12px;color: #777;">{{item.expire_format}}到期</view>
+		      	<view style="font-size:12px;color: #777;">仅限手机号为{{item.account}}的帐号使用</view>
+	    	</view>
+		</view>
+	</block>
+</view>

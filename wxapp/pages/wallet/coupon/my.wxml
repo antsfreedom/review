@@ -1,0 +1,16 @@
+<!-- 优惠券 -->
+ <view class="page" style="background:#fff;padding-bottom:30px">
+  <view class="top-title">店铺优惠券</view>
+  <block wx:for="{{info}}" wx:for-item="coupon" wx:key="key"> 
+    <radio-group bindchange="radioChange">
+      <label wx:for="{{coupon.store_redbag}}" wx:key="{{item.id}}" >
+        <view style="margin-bottom:15px">
+          <view class="weui-cell__hd btn">
+            <radio value="{{item.id}}" checked="false"/> 
+          </view>
+            <view class="subtitle">{{item.title}}满{{item.limit}}元减{{item.money}}</view>
+          </view>    
+      </label>
+    </radio-group>
+  </block> 
+</view> 
